@@ -20,7 +20,7 @@ namespace Lab10
             movies.Add(new Movie("Moonlight", "drama"));
             movies.Add(new Movie("The Conjuring", "horror"));
             movies.Add(new Movie("10 Cloverfield Lane", "horror"));
-            movies.Add(new Movie("Aliens", "scifi"));
+            movies.Add(new Movie("Alien", "scifi"));
             movies.Add(new Movie("Memoirs of a Geisha", "drama"));
 
             Console.WriteLine("Welcome to the Movie List Application!");
@@ -28,30 +28,9 @@ namespace Lab10
             Console.WriteLine("What category are you interested in?");
             string input = Console.ReadLine();
 
-            foreach(Movie cj in movies)
-            {
-                string cat = cj.getCategory();
-                if(cat == "horror")
-                {
-                    Console.WriteLine(cj.getTitle() +" is a horror movie.");
-                }
-                else if (cat == "animated")
-                {
-                    Console.WriteLine(cj.getTitle() + " is an animated movie.");
-                }
-                else if (cat == "drama")
-                {
-                    Console.WriteLine(cj.getTitle() + " is a drama movie.");
-                }
-                else if (cat == "scifi")
-                {
-                    Console.WriteLine(cj.getTitle() + " is a scifi movie.");
-                }
-                else
-                {
-                    Console.WriteLine("Please enter a valid movie category.");
-                }
+            MovieDB db = new MovieDB(movies); 
+            db.PrintByCategory(input);
             }
         }
     }
-}
+
